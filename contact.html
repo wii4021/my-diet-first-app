@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ | ダイエット管理ツール</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:#f0f4f8;color:#2d3748;min-height:100vh}
+.container{max-width:800px;margin:0 auto;padding:16px}
+header{text-align:center;padding:24px 0 16px}
+header h1{font-size:1.8rem;font-weight:bold;color:#4a5568;margin-bottom:4px}
+header p{font-size:.85rem;color:#718096}
+.card{background:#fff;border-radius:16px;padding:24px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+label{font-size:.85rem;color:#718096;font-weight:500}
+input[type=text],input[type=email],textarea{padding:10px 12px;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;color:#2d3748;width:100%;font-family:inherit;transition:border-color .2s}
+input:focus,textarea:focus{outline:none;border-color:#667eea}
+textarea{height:150px;resize:vertical}
+.btn{padding:12px 24px;border:none;border-radius:10px;font-size:1rem;font-weight:bold;cursor:pointer;font-family:inherit;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;width:100%;transition:all .2s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(102,126,234,.4)}
+.success-msg{display:none;background:#f0fff4;border-radius:10px;padding:16px;text-align:center;color:#276749;font-weight:bold;margin-top:16px}
+.note{font-size:.85rem;color:#718096;line-height:1.8;margin-bottom:16px}
+.back-btn{display:inline-block;margin-top:16px;padding:10px 24px;background:#e2e8f0;color:#4a5568;border-radius:10px;text-decoration:none;font-weight:bold;font-size:.95rem}
+footer{text-align:center;padding:16px;color:#a0aec0;font-size:.8rem}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>📩 お問い合わせ</h1>
+    <p>ご意見・ご要望・不具合報告などお気軽にどうぞ</p>
+  </header>
+  <div class="card">
+    <p class="note">※ お問い合わせ内容は確認後、順次対応いたします。返信までお時間をいただく場合があります。</p>
+    <div class="form-group">
+      <label for="name">お名前</label>
+      <input type="text" id="name" placeholder="例：山田 太郎">
+    </div>
+    <div class="form-group">
+      <label for="email">メールアドレス</label>
+      <input type="email" id="email" placeholder="例：example@email.com">
+    </div>
+    <div class="form-group">
+      <label for="message">お問い合わせ内容</label>
+      <textarea id="message" placeholder="お問い合わせ内容をご記入ください"></textarea>
+    </div>
+    <button class="btn" onclick="submitForm()">送信する</button>
+    <div class="success-msg" id="success-msg">✅ お問い合わせを受け付けました。ありがとうございます！</div>
+    <a href="index.html" class="back-btn">← ツールに戻る</a>
+  </div>
+</div>
+<footer>© 2026 ダイエット管理ツール</footer>
+<script>
+function submitForm(){
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  if(!name||!email||!message){alert('すべての項目を入力してください。');return;}
+  document.getElementById('success-msg').style.display='block';
+  document.getElementById('name').value='';
+  document.getElementById('email').value='';
+  document.getElementById('message').value='';
+}
+</script>
+</body>
+</html>
